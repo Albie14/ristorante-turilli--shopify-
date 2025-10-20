@@ -1,14 +1,25 @@
 <header>
-  <h2 class="header__title">
+  {% comment %} <h2 class="header__title">
     {{ shop.name | link_to: routes.root_url }}
-  </h2>
+  </h2> {% endcomment %}
 
+  <a href="{{ routes.root_url }}" class="logo_header">
+    <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" width="120" height="auto" >
+  </a>
   <div class="header__menu">
     {% for link in section.settings.menu.links %}
       {{ link.title | link_to: link.url }}
     {% endfor %}
   </div>
 
+  <div class="nav__menu">
+    <a href="{{ routes.root_url }}" class="btn-nav"><h2>Inicio</h2></a>
+    <a href="#contact" class="btn-nav"><h2>Contactos</h2></a>
+    <a href="#about" class="btn-nav"><h2>Chef</h2></a>
+    <a href="#about" class="btn-nav"><h2>Menu</h2></a>
+    <a href="#service" class="btn-nav"><h2>Servicios</h2></a>
+    
+  </div>
   <div class="header__icons">
     {% if shop.customer_accounts_enabled %}
       {{ 'icon-account.svg' | inline_asset_content | link_to: routes.account_url }}
@@ -24,17 +35,32 @@
   </div>
 </header>
 
+
 {% stylesheet %}
   header {
-    height: 5rem;
+    height: 8rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: var(--negro);
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6% 5% ;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0px 5px 9px rgba(0, 0, 0, 0.5);
+  }
+
+  header .logo_header img{
+    border-radius: 50%;
+    background-color: transparent;
+    filter: brightness(1.3);
+    transition: all ease 0.2s;
   }
   header a {
     position: relative;
     text-decoration: none;
-    color: var(--color-foreground);
   }
   header a sup {
     position: absolute;
@@ -48,8 +74,58 @@
   header .header__menu,
   header .header__icons {
     display: flex;
-    gap: 1rem;
+    gap: 1rem;  
   }
+  .nav__menu{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+
+  }
+.btn-nav{
+  position: relative;
+  color: var(--blanco);
+  opacity: 0.6;
+  transition: all ease 0.3s;
+}
+.btn-nav:hover{
+  opacity: 1;
+}
+  .btn-nav::before{
+    content: '';
+    position: absolute;
+    display: block;
+    height: 1px;
+    width: 0%;
+    background-color: var(--blanco);
+    top: -2px;
+    left: 50%;
+    transition: all ease 0.3s;
+  }
+
+  .btn-nav:hover::before{
+    width: 100%;
+    left: 0;
+  }
+
+
+  .btn-nav::after{
+  content: '';
+  position: absolute;
+  display: block;
+  height: 1px;
+  width: 0%;
+  background-color:white;
+  bottom: -5px;
+  left: 50%;
+  transition: all ease 0.3s;
+}
+
+ .btn-nav:hover::after{
+  width: 100%;
+  left: 0;
+
+}
 {% endstylesheet %}
 
 {% schema %}

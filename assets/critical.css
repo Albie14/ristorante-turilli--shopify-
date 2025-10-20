@@ -1,9 +1,20 @@
 /** Critical CSS for the theme. This file is included on every page. */
 
 /* Reset styles inspired by https://www.joshwcomeau.com/css/custom-css-reset/ */
+
+@import url("https://fonts.googleapis.com/css2?family=Arima:wght@100;300;500;700&family=Mulish:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 * {
   box-sizing: border-box;
   margin: 0;
+}
+
+:root{
+  --negro: #151515;
+  --gris: #9e9797;
+  --verde:  #00a149;
+  --blanco: #ececec;
+  --rojo: #96282b;
+  --font-titulo: 'Arima', cursive; 
 }
 
 body {
@@ -11,8 +22,12 @@ body {
   flex-direction: column;
   margin: 0;
   min-height: 100svh;
+  font-family: 'Times New Roman', Times, serif;
+  
 }
-
+html{
+  scroll-behavior: smooth;
+}
 html:has(dialog[scroll-lock][open], details[scroll-lock][open]) {
   overflow: hidden;
 }
@@ -73,9 +88,28 @@ p:empty {
 
 /** Theme styles below */
 body {
-  font-family: var(--font-primary--family);
+  font-family: 'Mulish', sans-serif;
   background-color: var(--color-background);
   color: var(--color-foreground);
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+.btn-style{
+  border: none;
+  background-color: var(--verde);
+  color: var(--blanco);
+  transition: all ease 0.2s;
+  cursor: pointer;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 5px 10px;
+}
+
+.btn-style:hover{
+  background-color: var(--rojo);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
 }
 
 /** Section layout utilities */
@@ -102,8 +136,14 @@ body {
   /* This is required to make <img> elements work as background images */
   position: relative;
   grid-template-columns: var(--content-grid);
-  display: grid;
+  display: flex;
   width: 100%;
+
+
+}
+.shopify-section:nth-child(2){
+  margin-top: 12%;
+  background-color: #00a149;
 }
 
 /* Child elements, by default, are constrained to the central column of the grid. */

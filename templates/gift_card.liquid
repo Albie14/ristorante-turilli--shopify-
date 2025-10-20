@@ -28,7 +28,8 @@
     <main>
       <div class="shopify-section">
         <h1>{{ gift_card.balance | money }}</h1>
-
+        <h1>{{ 'AQUI' }}</h1>
+       
         {% if gift_card.enabled == false or gift_card.expired %}
           <p>{{ 'gift_card.expired' | t }}</p>
         {% endif %}
