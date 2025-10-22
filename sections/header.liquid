@@ -17,21 +17,26 @@
     <a href="#contact" class="btn-nav"><h2>Contactos</h2></a>
     <a href="#about" class="btn-nav"><h2>Chef</h2></a>
     <a href="#about" class="btn-nav"><h2>Menu</h2></a>
-    <a href="#service" class="btn-nav"><h2>Servicios</h2></a>
+    <a href="#usuario" class="btn-nav"><h2>Usuario</h2></a>
     
   </div>
   <div class="header__icons">
     {% if shop.customer_accounts_enabled %}
       {{ 'icon-account.svg' | inline_asset_content | link_to: routes.account_url }}
     {% endif %}
+    <button type="button" id="btn-ingresar" class="btn-usuario">
+      
 
-    <a href="{{ routes.cart_url }}">
+    </button>
+
+
+    <button type="button" id="btn-cart" class="btn-usuario">
       {% if cart.item_count > 0 %}
         <sup>{{ cart.item_count }}</sup>
       {% endif %}
-
       {{ 'icon-cart.svg' | inline_asset_content }}
-    </a>
+    </button>
+  
   </div>
 </header>
 
@@ -42,7 +47,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--negro);
+    background-color: var(--color-negro);
     width: 100%;
     box-sizing: border-box;
     padding: 6% 5% ;
@@ -84,7 +89,7 @@
   }
 .btn-nav{
   position: relative;
-  color: var(--blanco);
+  color: var(--color-blanco);
   opacity: 0.6;
   transition: all ease 0.3s;
 }
@@ -97,7 +102,7 @@
     display: block;
     height: 1px;
     width: 0%;
-    background-color: var(--blanco);
+    background-color: var(--color-blanco);
     top: -2px;
     left: 50%;
     transition: all ease 0.3s;
@@ -115,15 +120,17 @@
   display: block;
   height: 1px;
   width: 0%;
-  background-color:white;
+  background-color:var(--color-blanco);
   bottom: -5px;
   left: 50%;
   transition: all ease 0.3s;
 }
 
- .btn-nav:hover::after{
+.btn-nav:hover::after{
   width: 100%;
   left: 0;
+}
+.btn-cart{
 
 }
 {% endstylesheet %}

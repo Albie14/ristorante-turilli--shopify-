@@ -3,7 +3,6 @@
   overview of the items in customer's cart.
 
   https://shopify.dev/docs/storefronts/themes/architecture/templates/cart
-{% endcomment %}
 
 <h1>{{ 'cart.title' | t }}</h1>
 
@@ -28,6 +27,37 @@
 
   <input type="submit" name="checkout" value="{{ 'cart.checkout' | t }}">
 </form>
+{% endcomment %}
+
+<div class="cart-overlay">
+
+    <div class="cart-content">
+      <h2>Tu Carrito</h2>
+
+      {% if cart.item_count  > 0 %}
+        <ul>
+          {% for item in cart.items %}
+            <li>
+              <img src="{{ item.image | image_url: '300px300' }}" alt="{{ item.title }}" width="300" height="300">
+
+              <span>{{ item.title }}</span>
+              <span>{{ item.quantity }} * {{ item.final_line_price | money }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+        <p>Total: {{ cart.total_price | money}}</p>
+
+        {% else %}
+          <div class="cart-empty">
+            <p>Tu carrito esta vacio</p>
+          </div>
+                  
+      {% endif %}
+      
+  
+    </div>
+
+</div>
 
 {% schema %}
 {
