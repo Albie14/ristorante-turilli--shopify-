@@ -1,0 +1,19 @@
+<div class="sidebar-cart">
+    {% if cart.item_count > 0 %}
+        <ul class="cart-item">
+            {% for item in cart.items %}
+                <li>
+                    <p>{{ item.product.title }} (*{{ item.quantity }})</p>
+                    <span>{{item.final_line_price | money }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+        <p><strong>Total:</strong> {{ cart.total_price | money }}</p>
+        {% else %}
+            <div class="msj-cart-empty">
+                <p>Tu carrito esta vacio!</p>
+                <i class="fa-solid fa-face-sad-tear"></i>
+            </div>
+    {% endif %}
+</div>
+

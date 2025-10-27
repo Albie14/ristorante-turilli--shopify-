@@ -1,7 +1,5 @@
 <header>
-  {% comment %} <h2 class="header__title">
-    {{ shop.name | link_to: routes.root_url }}
-  </h2> {% endcomment %}
+
 
   <a href="{{ routes.root_url }}" class="logo_header">
     <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" width="120" height="auto" >
@@ -21,26 +19,23 @@
     
   </div>
   <div class="header__icons">
-    {% if shop.customer_accounts_enabled %}
+    {% comment %} {% if shop.customer_accounts_enabled %}
       {{ 'icon-account.svg' | inline_asset_content | link_to: routes.account_url }}
-    {% endif %}
-    <button type="button" id="btn-ingresar" class="btn-usuario">
-      
-
+    {% endif %} {% endcomment %}
+    <button type="button" id="btn-user" class="btn-users">
+        <i class="fa-solid fa-user"></i>
     </button>
-
-
-    <button type="button" id="btn-cart" class="btn-usuario">
-      {% if cart.item_count > 0 %}
-        <sup>{{ cart.item_count }}</sup>
-      {% endif %}
-      {{ 'icon-cart.svg' | inline_asset_content }}
+    <button type="button" id="btn-cart" class="btn-users">
+        <i class="fa-solid fa-cart-shopping"></i>
     </button>
+    
+    {% render 'sidebar' %}
+
   
   </div>
 </header>
 
-
+<script src="{{ 'theme.js' | asset_url}}" defer></script>
 {% stylesheet %}
   header {
     height: 8rem;
@@ -113,7 +108,6 @@
     left: 0;
   }
 
-
   .btn-nav::after{
   content: '';
   position: absolute;
@@ -130,10 +124,103 @@
   width: 100%;
   left: 0;
 }
-.btn-cart{
+.header__icons{
+  width: 10%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.btn-users{
+  outline: 2px solid var(--color-blanco);
+  outline-offset: 2px;
+  border-radius: 15px;
+  height: 30px;
+  width: 30px;
+  overflow: hidden;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: all ease 0.3s;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.btn-users i{
+  font-size: 120%;
+}
+.btn-users:hover{
+  opacity: 1;
+  animation: expand 0.9s linear 0ms infinite normal;
+  transition: all ease 0.3ms;
 
 }
+@keyframes expand{
+  0%{outline-offset: 2px;}
+  50%{outline-offset: 4px;}
+  100%{outline-offset: 2px;}
+}
+
+.sidebar{
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width:40%;
+  background-color: var(--color-negro);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3% 2%;
+  box-shadow: 0 10px 10px rgba(255, 255, 255, 0.4);
+  border-top-right-radius: 50px;
+  transform: translateX(100%);
+  transition:  transform 0.5s ease, opacity 0.5s ease;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+}
+.visible{
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar-content{
+  margin-top: 5%;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--color-gris);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+}
+.sidebar-content::-webkit-scrollbar-track{
+  background-color: red;
+}
+.msj-cart-empty{
+  height: 20rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 200%;
+  color: var(--color-blanco);
+}
+.msj-cart-empty i{
+  font-size: 300%;
+}
+
+.hidden{
+  display: none;
+}
+
 {% endstylesheet %}
+
+
+
 
 {% schema %}
 {

@@ -1,0 +1,11 @@
+<div class="sidebar">
+    <button class="btn-close-sidebar btn-users"><i class="fa-solid fa-x"></i></button>
+    <div class="sidebar-content">
+        {% render 'sidebar-cart' %}
+        {% comment %} {% if mode == 'cart' %}
+            {% render 'sidebar-cart' %}
+        {% else %}
+            {% render 'sidebar-user' %}   
+        {% endif %} {% endcomment %}
+    </div>
+</div>
