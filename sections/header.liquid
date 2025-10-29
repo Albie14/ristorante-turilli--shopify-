@@ -19,9 +19,7 @@
     
   </div>
   <div class="header__icons">
-    {% comment %} {% if shop.customer_accounts_enabled %}
-      {{ 'icon-account.svg' | inline_asset_content | link_to: routes.account_url }}
-    {% endif %} {% endcomment %}
+    
     <button type="button" id="btn-user" class="btn-users">
         <i class="fa-solid fa-user"></i>
     </button>
@@ -35,7 +33,7 @@
   </div>
 </header>
 
-<script src="{{ 'theme.js' | asset_url}}" defer></script>
+<script src="{{ 'sidebar.js' | asset_url}}" defer></script>
 {% stylesheet %}
   header {
     height: 8rem;

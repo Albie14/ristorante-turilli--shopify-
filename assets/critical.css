@@ -96,22 +96,25 @@ body {
   scroll-behavior: smooth;
 }
 
+/* used for light background */
 .btn-style{
   border: none;
-  background-color: var(--verde);
+  background-color: var(--color-verde);
   color: var(--blanco);
   transition: all ease 0.2s;
   cursor: pointer;
   border-radius: 5px;
   box-sizing: border-box;
   padding: 5px 10px;
+
 }
 
 .btn-style:hover{
-  background-color: var(--rojo);
+  background-color: var(--color-rojo);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-
 }
+
+
 
 /** Section layout utilities */
 

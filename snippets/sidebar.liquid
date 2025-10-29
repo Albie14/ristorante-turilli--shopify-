@@ -1,11 +1,24 @@
 <div class="sidebar">
     <button class="btn-close-sidebar btn-users"><i class="fa-solid fa-x"></i></button>
     <div class="sidebar-content">
-        {% render 'sidebar-cart' %}
-        {% comment %} {% if mode == 'cart' %}
+        {% comment %} Here the Snippet will be inserted according to the button clicked {% endcomment %}
+        <div class="content-snippet hidden" id="content-user">
+            {% render 'sidebar-user' %}
+        </div>
+        <div class="content-snippet hidden" id="content-cart">
             {% render 'sidebar-cart' %}
-        {% else %}
-            {% render 'sidebar-user' %}   
-        {% endif %} {% endcomment %}
+        </div>
     </div>
 </div>
+<script src="{{ 'sidebar.js' | asset_url }}" defer></script>
+{% stylesheet %}
+.sidebar-content{
+    display: flex;
+    align-items: center;
+}
+.content-snippet{
+    width: 90%;
+    height: 100%;
+    box-sizing: border-box;
+}
+{% endstylesheet %}
