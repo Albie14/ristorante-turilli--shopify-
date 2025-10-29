@@ -1,4 +1,9 @@
 <div class="sidebar">
+    <div class="container-msjs">
+        <p class="msj-register hidden">registro exitoso</p>
+        <p class="msj-login hidden"><span>xxxxxx</span>, Bienvenido</p>
+        <p class="msj-error-register hidden">Usuario ya registrado</p>
+    </div>
     <button class="btn-close-sidebar btn-users"><i class="fa-solid fa-x"></i></button>
     <div class="sidebar-content">
         {% comment %} Here the Snippet will be inserted according to the button clicked {% endcomment %}
@@ -16,9 +21,31 @@
     display: flex;
     align-items: center;
 }
+.container-msjs{
+    position: absolute;
+    right: 5%;
+    top:3%;
+    width: 60%;
+    height: 2rem;
+    color: red;
+    overflow: hidden;
+
+}
+.msj-register,.msj-login, .msj-error-register{
+    text-align: right;
+    opacity: 0;
+    transition: transform 0.8s ease, opacity 0.4s ease;
+    transform: translateX(100%);
+}
+
+.show-msj-sidebar{
+    transform: translateX(0);
+    opacity: 1;
+}
 .content-snippet{
     width: 90%;
     height: 100%;
     box-sizing: border-box;
 }
+
 {% endstylesheet %}
