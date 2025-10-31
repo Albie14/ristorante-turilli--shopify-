@@ -11,7 +11,7 @@
   </div>
 
   <div class="nav__menu">
-    <a href="{{ routes.root_url }}" class="btn-nav"><h2>Inicio</h2></a>
+    <a href="{{ routes.root_url }}" class="btn-nav active"><h2>Inicio</h2></a>
     <a href="#contact" class="btn-nav"><h2>Contactos</h2></a>
     <a href="#about" class="btn-nav"><h2>Chef</h2></a>
     <a href="#about" class="btn-nav"><h2>Menu</h2></a>
@@ -86,42 +86,43 @@
   opacity: 0.6;
   transition: all ease 0.3s;
 }
-.btn-nav:hover{
+.btn-nav:hover, .btn-nav.active{
   opacity: 1;
 }
-  .btn-nav::before{
-    content: '';
-    position: absolute;
-    display: block;
-    height: 1px;
-    width: 0%;
-    background-color: var(--color-blanco);
-    top: -2px;
-    left: 50%;
-    transition: all ease 0.3s;
-  }
-
-  .btn-nav:hover::before{
-    width: 100%;
-    left: 0;
-  }
-
-  .btn-nav::after{
+.btn-nav::before, .btn-nav.active::before{
   content: '';
   position: absolute;
   display: block;
   height: 1px;
   width: 0%;
-  background-color:var(--color-blanco);
-  bottom: -5px;
+  background-color: var(--color-blanco);
+  top: -2px;
   left: 50%;
   transition: all ease 0.3s;
 }
 
-.btn-nav:hover::after{
+.btn-nav:hover::before, .btn-nav.active::before{
   width: 100%;
   left: 0;
 }
+
+.btn-nav::after, .btn-nav.active::after{
+content: '';
+position: absolute;
+display: block;
+height: 1px;
+width: 0%;
+background-color:var(--color-blanco);
+bottom: -5px;
+left: 50%;
+transition: all ease 0.3s;
+}
+
+.btn-nav:hover::after, .btn-nav.active::after{
+  width: 100%;
+  left: 0;
+}
+
 .header__icons{
   width: 10%;
   display: flex;
@@ -216,9 +217,6 @@
 }
 
 {% endstylesheet %}
-
-
-
 
 {% schema %}
 {

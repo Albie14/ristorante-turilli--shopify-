@@ -1,0 +1,91 @@
+<div class="hero">
+    <div class="name-hero" >
+        <h1>Ristorante <br> 
+        <span class="second-line">
+            <span class="green">Tu</span><span class="white">ri</span><span class="red">lli</span>
+        </span>
+        </h1>
+    </div>
+   <div class="second-hero">
+        <video autoplay muted loop playsinline>
+            <source src="{{ section.settings.video | asset_url}}" type="video/mp4" >
+            Error en video
+        </video>
+    </div>
+</div>
+
+{% stylesheet %}
+
+.hero{
+    display: flex;
+    justify-content:flex-end;
+    box-sizing: border-box;
+    background:  grey;
+    width: 100%;
+    height: 70vh;
+    position: relative;
+    z-index: 0;
+}
+
+.name-hero{
+    position: absolute;
+    height: 100%;
+    width: 60%;
+    display: flex;  
+    align-items: center;
+    justify-content: left;
+    font-family: var(--font-titulo);
+    font-size: 300%;
+    color: var(--color-blanco);
+    box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.5);
+    border-bottom-right-radius: 200px;
+    z-index: 5;
+    left: 0;
+    background-color: grey;
+    box-sizing: border-box;
+    padding-left: 8%;
+}
+.second-line{
+    margin-left: 40%;
+}
+
+.green{
+    color: green;
+}
+.white{
+    color: white;
+}
+.red{
+    color: red;
+}
+
+.second-hero{
+    width: 60%;
+    height: 100%;
+    z-index: 2;
+}
+.second-hero video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    background-clip: blur(10px);
+}
+
+{% endstylesheet %}
+
+
+{% schema %}
+{
+    "name": "hero", 
+    "settings": [
+      
+        {
+            "type": "text",
+            "id": "video",
+            "label": "Video hero",
+            "default": "video-banner.mp4"
+        }
+    ]
+}
+{% endschema %}

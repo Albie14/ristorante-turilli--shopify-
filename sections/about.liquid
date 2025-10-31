@@ -1,0 +1,85 @@
+<div class="about">
+    <div class="about-text">
+        <h4>Benvenuto a</h4>
+        <h2>Ristorante Turilli</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti unde veniam, assumenda laudantium similique tenetur, adipisci quidem esse aliquid perferendis magnam enim odit eaque dolor aut modi, voluptas libero delectus? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed, ipsa sequi consectetur eum saepe nisi natus nemo quibusdam. Veritatis, atque quidem. Animi officia libero quia eligendi inventore velit. Voluptatem, harum?</p>
+        <button class="btn-style btn-contactar">Contactar</button>
+    </div>
+    <div class="about-img">
+        <img src="{{ 'nosotros1.webp' | asset_url }}" width="20px" height="20px" alt="about1">
+        <div class="group-img">
+            <img src="{{ 'nosotros2.webp' | asset_url }}" width="20px" height="20px" alt="about2">
+            <img src="{{ 'nosotros3.webp' | asset_url }}" width="20px" height="20px" alt="about3">
+        </div>
+    </div>
+</div>
+
+{% stylesheet %}
+.about{
+    display: flex;
+    width: 100%;
+    height: 80vh;
+    box-sizing: border-box;
+    padding: 3%;
+}
+.about-text{
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.about-text h4{
+    color: var(--color-verde);
+    font-family: var(--font-text);
+    font-size: 200%;
+}
+.about-text h2{
+    color: var(--color-negro);
+    font-family: var(--font-titulo);
+    font-size: 300%;
+}
+.about-text p{
+    display: flex;
+    align-items: center;
+    line-height: 150%;
+    height: 50%;
+    text-align: center;
+}
+.btn-contactar{
+    width: 30%;
+    height: 10%;
+    margin-right: 50%;
+    font-weight: 600;
+    font-family: var(--font-text);
+    color: var(--color-blanco);
+    font-size: 120%;
+}
+.about-img{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-sizing: border-box;
+    width: 48%;
+}
+
+.about-img img:nth-child(1){
+    width: 50%;
+    height: 90%;
+    border-radius: 5px;
+
+}
+.about-img .group-img{
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.about-img .group-img img{
+    border-radius: 5px;
+    width: 100%;
+    height: 45%;
+    
+}
+{% endstylesheet %}

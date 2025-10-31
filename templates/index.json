@@ -7,14 +7,20 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
+
+
 {
   "sections": {
-    "main": {
-      "type": "hello-world",
-      "settings": {}
+    "hero": {
+      "type": "hero",
+
+    },
+    "about":{
+      "type": "about",
     }
   },
   "order": [
-    "main"
+    "hero", 
+    "about"
   ]
 }
