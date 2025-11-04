@@ -1,49 +1,123 @@
-{% comment %}
-  This section is used in the product template to render product page with
-  media, content, and add-to-cart form.
+<div class="products">
+  <h2 class="title-section">Platillos Populares</h2>
 
-  https://shopify.dev/docs/storefronts/themes/architecture/templates/product
-{% endcomment %}
+  <div class="group-btns">
+    <button class="btn-style" id="todos">Todos</button>
+    <button class="btn-style" id="ensaladas">Ensaladas</button>
+    <button class="btn-style" id="pastas">Pastas</button>
+    <button class="btn-style" id="pizzas">Pizzas</button>
+    <button class="btn-style" id="postres">Postres</button>
+  </div>
+  <div class="container-product">
+    {% for product in collections['menu-principal'].products %}
+      <div class="card-product">
+      <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}" width="300" height="300">
 
-<div class="product-images">
-  {% for image in product.images %}
-    {% render 'image', class: 'product-image', image: image %}
-  {% endfor %}
+        <div class="text-card">
+          <h3>{{ product.title }}</h3>
+          <p>{{ product.description | strip_html | truncate: 120 }}</p>
+          
+        </div>
+        <div class="pay-card">
+          <p>{{ product.price | money }}</p>
+          <button type="button" class="add-cart btn-style"><i class="fa-solid fa-cart-plus"></i></button>
+        </div>
+      </div>
+    {% endfor %}
+
+  </div>
 </div>
+{% stylesheet %}
+.products{
+  margin-top: 5%;
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  padding:0 2%;
+}
+.title-section{
+  width: 100%;
+  height: 4rem;
+  font-size: 300%;
+  font-family: var(--font-titulo);
+  display: flex;
+  align-items: center;  
+  justify-content: center;
 
-<div class="product-info">
-  <h1>{{ product.title }}</h1>
-  <p>{{ product.price | money }}</p>
-  <p>{{ product.description }}</p>
-</div>
+}
+.group-btns{
+  width: 50%;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--color-blanco);
+}
+.group-btns button{
+  width: 18%;
+  height: 60%;
+  font-weight: 500;
+  font-size: 110%;
+  color: var(--color-blanco);
+}
+.container-product{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2%;
+}
+.card-product{
+  margin-top: 2%;
+  border-radius: 5px;
+  border: 1px solid var(--color-gris);
+  width: 32%;
+  height: 30rem;
+  box-sizing: border-box;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-product img{
+  height: 60%;
+  width: 100%;
+}
+.text-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 20%;
+}
+.text-card h3{
+  text-align: center;
+  font-size: 130%;
+  font-family: var(--font-titulo);
+  letter-spacing: 0.5px;
+}
 
-<div class="product-form">
-  {% form 'product', product %}
-    {% assign current_variant = product.selected_or_first_available_variant %}
+.pay-card{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10%;
+}
+.pay-card p{
+  font-size: 120%;
+  font-weight: 700;
+  letter-spacing: 0.75px;
+}
+.pay-card button{
+  height: 100%;
+  width: 20%;
+  font-size: 150%;
+  color: var(--color-blanco);
 
-    <select name="id">
-      {% for variant in product.variants %}
-        <option
-          value="{{ variant.id }}"
-          {% if variant == current_variant %}
-            selected="selected"
-          {% endif %}
-        >
-          {{ variant.title }} - {{ variant.price | money }}
-        </option>
-      {% endfor %}
-    </select>
+}
 
-    <input type="text" name="quantity" min="1" value="1">
-
-    <input type="submit" value="Add to cart">
-    {{ form | payment_button }}
-  {% endform %}
-</div>
-
+{% endstylesheet %}
 {% schema %}
 {
-  "name": "t:general.product",
+  "name": "product",
   "settings": [],
   "disabled_on": {
     "groups": ["header", "footer"]

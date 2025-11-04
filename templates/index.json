@@ -9,18 +9,22 @@
  */
 
 
-{
-  "sections": {
-    "hero": {
-      "type": "hero",
+  {
+    "sections": {
+      "hero": {
+        "type": "hero",
 
+      },
+      "about":{
+        "type": "about",
+      },
+      "product": {
+        "type": "product"
+      }
     },
-    "about":{
-      "type": "about",
-    }
-  },
-  "order": [
-    "hero", 
-    "about"
-  ]
-}
+    "order": [
+      "hero", 
+      "about",
+      "product"
+    ]
+  }
