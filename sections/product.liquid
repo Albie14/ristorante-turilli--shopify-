@@ -2,31 +2,65 @@
   <h2 class="title-section">Platillos Populares</h2>
 
   <div class="group-btns">
-    <button class="btn-style" id="todos">Todos</button>
-    <button class="btn-style" id="ensaladas">Ensaladas</button>
-    <button class="btn-style" id="pastas">Pastas</button>
-    <button class="btn-style" id="pizzas">Pizzas</button>
-    <button class="btn-style" id="postres">Postres</button>
+    <button class="btn-style filter-products" id="todos">Todos</button>
+    <button class="btn-style filter-products" id="ensaladas">Ensaladas</button>
+    <button class="btn-style filter-products" id="pastas">Pastas</button>
+    <button class="btn-style filter-products" id="pizzas">Pizzas</button>
+    <button class="btn-style filter-products" id="postres">Postres</button>
   </div>
   <div class="container-product">
-    {% for product in collections['menu-principal'].products %}
-      <div class="card-product">
-      <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}" width="300" height="300">
+  {% for product in collections['menu-principal'].products %}
+  <div class="card-product" data-collection="{{ product.tags | join: ' ' | downcase }}">
+    <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}" width="300" height="300">
 
-        <div class="text-card">
-          <h3>{{ product.title }}</h3>
-          <p>{{ product.description | strip_html | truncate: 120 }}</p>
-          
-        </div>
-        <div class="pay-card">
-          <p>{{ product.price | money }}</p>
-          <button type="button" class="add-cart btn-style"><i class="fa-solid fa-cart-plus"></i></button>
-        </div>
-      </div>
-    {% endfor %}
+    <div class="text-card">
+      <h3>{{ product.title }}</h3>
+      <p>{{ product.description | strip_html | truncate: 120 }}</p>
+    </div>
+
+    <div class="pay-card">
+      <p>{{ product.price | money }}</p>
+      <button type="button" class="add-cart btn-style">
+        <i class="fa-solid fa-cart-plus"></i>
+      </button>
+    </div>
+  </div>
+{% endfor %}
+
 
   </div>
 </div>
+
+<script>
+
+function initProductFilters() {
+  const buttons = document.querySelectorAll(".filter-products");
+  const products = document.querySelectorAll(".card-product");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const category = btn.id.toLowerCase();
+
+      products.forEach(prod => {
+        const tags = prod.dataset.collection?.toLowerCase() || '';
+
+        if (category === "todos" || tags.includes(category)) {
+          prod.style.display = "flex";
+        } else {
+          prod.style.display = "none";
+        }
+      });
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", initProductFilters);
+document.addEventListener("shopify:section:load", initProductFilters);
+document.addEventListener("shopify:section:select", initProductFilters);
+
+</script>
+
+
 {% stylesheet %}
 .products{
   margin-top: 5%;
@@ -64,7 +98,6 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 2%;
 }
 .card-product{
   margin-top: 2%;
@@ -113,8 +146,8 @@
   color: var(--color-blanco);
 
 }
-
 {% endstylesheet %}
+
 {% schema %}
 {
   "name": "product",
