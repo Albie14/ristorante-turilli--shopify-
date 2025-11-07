@@ -20,11 +20,15 @@
       },
       "product": {
         "type": "product"
+      },
+      "banner":{
+        "type": "banner"
       }
     },
     "order": [
       "hero", 
       "about",
-      "product"
+      "product",
+      "banner"
     ]
   }

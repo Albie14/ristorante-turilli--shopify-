@@ -14,7 +14,7 @@
             <p class="msj-error">Dato errado o incompleto</p>
         {% endform %}
     </div>
-    <div class="form-register">
+    {% comment %} <div class="form-register">
         {% form 'create_customer' %}
             <div class="group-register">
                 <div class="group-input-register">
@@ -40,7 +40,7 @@
             <button type="submit" class="btn-register btn-nav">Registrarse</button>
             <p class="msj-error">Todos los campos son obligatorios</p>
         {% endform %}
-    </div>
+    </div> {% endcomment %}
 </div>
 
 {% style %}

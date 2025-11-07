@@ -31,13 +31,3 @@ if (!window.__sidebar_initialized__) {
     });
   })();
 }
-
-
-
-// if (Shopify.designMode) {
-//   document.addEventListener("DOMContentLoaded", initShopifyScripts);
-//   document.addEventListener("shopify:section:load", initShopifyScripts);
-//   document.addEventListener("shopify:section:select", initShopifyScripts);
-// } else {
-//   document.addEventListener("DOMContentLoaded", initShopifyScripts);
-// }

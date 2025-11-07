@@ -61,7 +61,7 @@ document.addEventListener("shopify:section:select", initProductFilters);
 </script>
 
 
-{% stylesheet %}
+{% style %}
 .products{
   margin-top: 5%;
   display: inline-block;
@@ -98,6 +98,7 @@ document.addEventListener("shopify:section:select", initProductFilters);
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 2%;
 }
 .card-product{
   margin-top: 2%;
@@ -146,7 +147,20 @@ document.addEventListener("shopify:section:select", initProductFilters);
   color: var(--color-blanco);
 
 }
-{% endstylesheet %}
+@media (max-width: 900px) {
+  .card-product {
+    width: 48%;
+    height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .card-product {
+    width: 100%;
+    height: auto;
+  }
+}
+{% endstyle %}
 
 {% schema %}
 {
