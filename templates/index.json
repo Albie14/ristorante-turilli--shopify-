@@ -23,12 +23,16 @@
       },
       "banner":{
         "type": "banner"
+      },
+      "section-chef":{
+        "type": "section-chef"
       }
     },
     "order": [
       "hero", 
       "about",
       "product",
-      "banner"
+      "banner",
+      "section-chef"
     ]
   }
