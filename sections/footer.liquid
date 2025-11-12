@@ -1,40 +1,117 @@
 <footer>
+  <div class="footer_sections">
+    <div class="txt_sections">
+      <span>
+        <h3>Direccion</h3>
+        <p>23.Roma Italia 75012</p>
+      </span>
+
+      <span>
+        <h3>Dias especiales</h3>
+        <p>Sabados y Jueves 9am - 11pm</p>
+      </span>
+
+      <span>
+        <h3>Horarios</h3>
+        <p>Lunes a Domingos 7am - 11pm</p>
+      </span>
+    </div>
+
+    <div class="newsletter">
+      <div>
+         <h2>Promociones</h2>
+      <p>Suscribete para recibir nuestras Promociones y Descuentos </p>
+      </div>
+     
+      {% form 'contact' %}
+          <div class="group-input-newsletter">
+              <label for="newsletter-email"></label>
+              <input id="newsletter-email" type="email" name="contact[email]" placeholder="Correo" required>
+          </div>
+          <button type="submit" class="btn-style">Suscribete</button>
+      {% endform %}
+    </div>
+
+  </div>
   <div class="footer__copyright">
-    &copy;
+    
     {{ 'now' | date: '%Y' }}
     {{ shop.name | link_to: routes.root_url }}, {{ powered_by_link }}
   </div>
 
-  <div class="footer__links">
-    {% for link in section.settings.menu.links %}
-      {{ link.title | link_to: link.url }}
-    {% endfor %}
-  </div>
-
-  <div class="footer__payment">
-    {% if section.settings.show_payment_icons %}
-      {% for type in shop.enabled_payment_types %}
-        {{ type | payment_type_svg_tag }}
-      {% endfor %}
-    {% endif %}
-  </div>
 </footer>
 
 {% stylesheet %}
   footer {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    margin-top: 2rem;
+    margin-top: 5%;
+    width: 100%;
+    height: 50vh;
+    background-color: var(--color-negro);
+    color: var(--color-blanco);
+    overflow: hidden;
   }
   footer a {
     text-decoration: none;
-    color: var(--color-foreground);
+    color: var(--color-blanco);
   }
-  footer .footer__links,
-  footer .footer__payment {
+  .footer_sections{
     display: flex;
-    gap: 1rem;
+    justify-content: space-evenly;
+    height: 80%;
+    border-bottom: 1px solid var(--color-gris);
+
   }
+  .txt_sections{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .newsletter{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 1% 0;
+  }
+  .newsletter form{
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-between;
+  }
+  .group-input-newsletter{
+    height: 40%;
+    width: 100%;
+    position: relative;
+  }
+
+  .group-input-newsletter input{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: 1px solid var(--color-gris);
+    border-radius: 5px;
+    padding-left: 2%;
+  }
+  .newsletter form button{
+    width: 50%;
+    height: 40%;
+  }
+  .footer__copyright{
+    text-align: center;
+    width: 100%;
+    height: 15%;
+
+  }
+ 
 {% endstylesheet %}
 
 {% schema %}
