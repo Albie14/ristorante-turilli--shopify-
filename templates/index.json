@@ -26,6 +26,9 @@
       },
       "section-chef":{
         "type": "section-chef"
+      },
+      "suggestions":{
+        "type": "suggestions"
       }
     },
     "order": [
@@ -33,6 +36,7 @@
       "about",
       "product",
       "banner",
-      "section-chef"
+      "section-chef",
+      "suggestions"
     ]
   }
