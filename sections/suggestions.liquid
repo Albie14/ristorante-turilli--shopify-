@@ -32,9 +32,9 @@
             </div>
 
             <button type="submit" class="btn-style">Enviar sugerencia</button>
-            <p>Gracias por tu sugerencia, para nosotros es importante conocerla.</p>
+            <p class="msj-success">Gracias por tu sugerencia, para nosotros es importante conocerla.</p>
         {% endform %}
-    </div>
+    </div>         
 </div> 
 
 {% stylesheet %}
@@ -100,7 +100,6 @@
     .form-suggestions{
         width: 49%;
         height: 100%; 
-        outline: 1px solid red;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -233,6 +232,20 @@
 
    
     input:focus::placeholder, textarea:focus::placeholder{
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .form-suggestions form button{
+        width: 30%;
+        height: 15%;
+        font-size: 110%;
+        font-weight: 600;
+        color: var(--color-blanco);
+    }
+    .msj-success{
+        color: var(--color-rojo);
+        font-weight: 600;
         opacity: 0;
         transition: opacity 0.3s ease;
     }
