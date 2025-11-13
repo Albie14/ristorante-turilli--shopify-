@@ -61,8 +61,6 @@
     display: flex;
     justify-content: space-evenly;
     height: 80%;
-    border-bottom: 1px solid var(--color-gris);
-
   }
   .txt_sections{
     width: 60%;
@@ -78,7 +76,7 @@
     justify-content: space-between;
     text-align: center;
     box-sizing: border-box;
-    padding: 1% 0;
+    padding: 1% 3%;
   }
   .newsletter form{
     height: 45%;
@@ -109,9 +107,21 @@
     text-align: center;
     width: 100%;
     height: 15%;
-
+    position: relative;
+    box-sizing: border-box;
+    padding-top: 1%;
+  } 
+  .footer__copyright::before{
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 1%;
+    background-color: var(--color-gris);
+    top: 0;
+    left: 25%;
+    box-shadow: 0 5px 5px rgba(255, 255, 255, 0.5);
   }
- 
+
 {% endstylesheet %}
 
 {% schema %}
