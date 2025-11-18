@@ -7,36 +7,39 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-
-
-  {
-    "sections": {
-      "hero": {
-        "type": "hero",
-
-      },
-      "about":{
-        "type": "about",
-      },
-      "product": {
-        "type": "product"
-      },
-      "banner":{
-        "type": "banner"
-      },
-      "section-chef":{
-        "type": "section-chef"
-      },
-      "suggestions":{
-        "type": "suggestions"
-      }     
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {}
     },
-    "order": [
-      "hero", 
-      "about",
-      "product",
-      "banner",
-      "section-chef",
-      "suggestions"
-    ]
-  }
+    "about": {
+      "type": "about",
+      "settings": {}
+    },
+    "product": {
+      "type": "product",
+      "settings": {}
+    },
+    "banner": {
+      "type": "banner",
+      "settings": {}
+    },
+    "section-chef": {
+      "type": "section-chef",
+      "settings": {}
+    },
+    "suggestions": {
+      "type": "suggestions",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "about",
+    "product",
+    "banner",
+    "section-chef",
+    "suggestions"
+  ]
+}

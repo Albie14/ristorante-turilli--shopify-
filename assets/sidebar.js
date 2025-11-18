@@ -31,3 +31,23 @@ if (!window.__sidebar_initialized__) {
     });
   })();
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector("header");
+  // const logo = document.querySelector(".logo-header")
+  if (!header) return;
+
+  window.addEventListener("scroll", () => {
+    const threshold = 5;
+
+    if (window.scrollY > threshold) {
+      header.classList.add("header-min");
+      // logo.classList.add("reduce-img")
+
+    } else {
+      header.classList.remove("header-min");
+      // logo.classList.remove("reduce-img")
+
+    }
+  });
+});

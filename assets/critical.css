@@ -25,11 +25,11 @@ body {
   font-family: 'Times New Roman', Times, serif;
   position: relative;
   background-color: #96282b;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 html{
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 
 }
 html:has(dialog[scroll-lock][open], details[scroll-lock][open]) {
