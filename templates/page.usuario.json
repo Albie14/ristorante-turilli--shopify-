@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "usuario": {
+      "type": "usuario",
+      "settings": {}
+    }
+  },
+  "order": [
+    "usuario"
+  ]
+}

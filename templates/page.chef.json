@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "chef": {
+      "type": "chef",
+      "settings": {}
+    }
+  },
+  "order": [
+    "chef"
+  ]
+}

@@ -1,6 +1,4 @@
 <header>
-
-
   <a href="{{ routes.root_url }}" class="logo-header">
     <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" width="120" height="auto" >
   </a>
@@ -11,11 +9,26 @@
   </div>
 
   <div class="nav__menu">
-    <a href="{{ routes.root_url }}" class="btn-nav active"><h2>Inicio</h2></a>
-    <a href="/templates/page.contactaus.json" class="btn-nav"><h2>Contactos</h2></a>
-    <a href="#about" class="btn-nav"><h2>Chef</h2></a>
-    <a href="#about" class="btn-nav"><h2>Menu</h2></a>
-    <a href="#usuario" class="btn-nav"><h2>Usuario</h2></a>
+    <a href="{{ routes.root_url }}" 
+        class="btn-nav {% if request.page_type == 'index' %}active{% endif %}">
+      <h2>Inicio</h2>
+    </a>
+    <a href="{{ pages.contactanos.url }}"
+        class="btn-nav {% if page.handle == 'contactanos' %}active{% endif %}">
+        <h2>Contactos</h2>
+      </a>
+    <a href="{{ pages.menu.url }}" 
+        class="btn-nav {% if page.handle == 'menu' %}active{% endif %}">
+        <h2>Menu</h2>
+    </a>
+    <a href="{{ pages.chef.url }}" 
+        class="btn-nav {% if page.handle == 'chef' %}active{% endif %}">
+        <h2>Chef</h2>
+      </a>
+    <a href="{{  pages.usuario.url }}" 
+      class="btn-nav {% if page.handle == 'usuario' %}active{% endif %}">
+      <h2>Usuario</h2>
+    </a>
     
   </div>
   <div class="header__icons">

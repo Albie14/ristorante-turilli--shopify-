@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "contactanos": {
+      "type": "contactanos",
+      "settings": {}
+    }
+  },
+  "order": [
+    "contactanos"
+  ]
+}

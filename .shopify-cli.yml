@@ -1,0 +1,6 @@
+---
+store: ristorante-turilli.myshopify.com
+theme_id: 153878298850
+ignore_files:
+  - .git/*
+  - node_modules/*
